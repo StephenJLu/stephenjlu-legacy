@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stephen's Ledger</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/uikit.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/magic-grid/dist/magic-grid.min.js"></script>
+    <script src="js/uikit.js"></script>
+    <script src="js/uikit-icons.js"></script>
+    <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/115909334?v=4" type="image/png"></head>
+
+  <body>
+    <div id="loading">
+      <div id="spinner"></div>
+    </div>
+    <div id="profile">
+      <div id="profile_img" style="background: url(https://avatars.githubusercontent.com/u/115909334?v=4) center;"></div>
+      <div id="username"><span style="display:block;">Stephen J. Lu</span><a href="https://github.com/StephenJLu">@StephenJLu</a></div>
+      <div id="userbio" style="display: block;">Stephen has studied everything from mosquitoes and disease biology to bloodstain patterns, bullet trajectories, and digging up clandestine graves.</div>
+      <div id="about">                
+                <span style="display:block;"><i class="fas fa-envelope"></i> &nbsp; <a href="mailto:Hello@StephenJLu.com">Hello@StephenJLu.com</a></span>
+                <span style="display:block;"><i class="fas fa-link"></i> &nbsp; <a href="https://www.StephenJLu.com">https://www.StephenJLu.com</a></span>
+                <span style="display:block;"><i class="fas fa-map-marker-alt"></i> &nbsp;&nbsp; San Diego, CA</span>
+                <span style="display:none;"><i class="fas fa-user-tie"></i> &nbsp;&nbsp; Available for hire</span>
+                <div class="socials">
+                <span style="display:block;"><a href="https://www.linkedin.com/in/stephenjlu/" target="_blank" class="socials"><i class="uk-icon" uk-icon="linkedin"></i></a></span>
+                <span style="display:block;"><a href="https://www.facebook.com/StephenJLu" target="_blank" class="socials"><i class="uk-icon" uk-icon="facebook"></i></a></span>
+                <span style="display:block;"><a href="https://www.instagram.com/stephen.j.lu/" target="_blank" class="socials"><i class="uk-icon" uk-icon="instagram"></i></a></span>
+                <span style="display:block;"><a href="https://bsky.app/profile/stephenjlu.com" target="_blank" class="socials"><i class="uk-icon" uk-icon="bluesky"></i></a></span>                
+                </div>
+                </div>
+    </div>
+    <div id="display">
+      <div id="work">
+        <h1>Work.</h1>
+        <div class="projects" id="work_section">
+                        <a href="https://github.com/StephenJLu/stephenjlu" target="_blank">
+                        <section>
+                            <div class="section_title">stephenjlu</div>
+                            <div class="about_section">
+                            <span style="display:block;">Stephen's Personal Website</span>
+                            </div>
+                            <div class="bottom_section">
+                                <span style="display:inline-block;"><i class="fas fa-code"></i>&nbsp; CSS</span>
+                                <span><i class="fas fa-star"></i>&nbsp; 0</span>
+                                <span><i class="fas fa-code-branch"></i>&nbsp; 0</span>
+                            </div>
+                        </section>
+                        </a></div>
+      </div>
+      <div id="forks" style="display:none;">
+        <h1>Forks.</h1>
+        <div class="projects" id="forks_section"></div>
+      </div>
+      <div id="blog_section">
+        <h1>Blog.</h1>
+        <div id="blogs"></div>
+      </div>
+      <div id="footer">
+        © 2024 Stephen J. Lu<br>
+        <font size="-1">GitFolio Design by <a href="https://github.com/imfunniee" target="_blank">imfunniee</a> | Enhanced with <a href="https://www.getuikit.com" target="_blank">UIKit</a>
+      </div>
+    </div>
+    <script type="text/javascript">
+      setTimeout(function() {
+        document.getElementById("loading").classList.add("animated");
+        document.getElementById("loading").classList.add("fadeOut");
+        setTimeout(function() {
+          document.getElementById("loading").classList.remove("animated");
+          document.getElementById("loading").classList.remove("fadeOut");
+          document.getElementById("loading").style.display = "none";
+        }, 800);
+      }, 1500);
+      $.getJSON("blog.json", function(blog) {
+        blog = blog || [];
+        if (blog.length == 0) {
+          return (document.getElementById("blog_section").style.display =
+            "none");
+        }
+        for (var i = 0; i < blog.length; i++) {
+          $("#blogs").append(`
+            <a href="./blog/${blog[i].url_title}/" target="_blank">
+                <section>
+                    <img src="./blog/${blog[i].url_title}/${blog[i].top_image}">
+                    <div class="blog_container">
+                        <div class="section_title">${blog[i].title}</div>
+                        <div class="about_section">
+                            ${blog[i].sub_title}
+                        </div>
+                    </div>
+                </section>
+            </a>
+            `);
+        }
+      }).fail(function() {
+        return (document.getElementById("blog_section").style.display = "none");
+      });
+    </script>
+
+    <script>
+      const magicProjectsGrid = new MagicGrid({
+        container: "#work_section",
+        animate: false,
+        gutter: 30, // default gutter size
+        static: true,
+        useMin: false,
+        maxColumns: 2,
+        useTransform: true
+      });
+
+      const magicForksGrid = new MagicGrid({
+        container: "#forks_section",
+        animate: false,
+        gutter: 30, // default gutter size
+        static: true,
+        useMin: false,
+        maxColumns: 2,
+        useTransform: true
+      });
+
+      $("document").ready(() => {
+        magicProjectsGrid.listen();
+        magicForksGrid.listen();
+      });
+    </script>
+  
+
+</body></html>
