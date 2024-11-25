@@ -118,6 +118,11 @@ body {
   z-index: 1;
 }
 
+#blog-display a {
+  color: #fff;
+  text-decoration: underline;
+}
+
 #profile_blog {
   width: 60vw;
   margin: 0px 20vw;
