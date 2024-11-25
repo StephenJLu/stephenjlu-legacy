@@ -1,6 +1,6 @@
 ## Hi there 👋
 
-- 🔭 I’m currently working on CSI to CEO
+- 🔭 I’m currently working on _CSI to CEO_
 - 🌱 I’m learning American Sign Language (ASL)
 - 👯 I’m looking to collaborate on forensic leadership development
 - 😄 Pronouns: he/him/his
