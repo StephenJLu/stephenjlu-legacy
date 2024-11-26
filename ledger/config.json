@@ -4,7 +4,7 @@
   "name": "Stephen J. Lu",
   "userimg": "https://avatars.githubusercontent.com/u/115909334?v=4",
   "sort": "created",
-  "order": "asc",
+  "order": "desc",
   "includeFork": false,
   "theme": "dark.css",
   "types": [
