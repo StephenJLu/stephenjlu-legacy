@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
 function fetchFromCloudflareKV($key) {
-    $workerUrl = "https://phpmailer.workers.dev/?key={$key}";
+    $workerUrl = "https://phpmailer.stephenjlu.workers.dev/?key={$key}";
 
     $ch = curl_init($workerUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
