@@ -129,6 +129,7 @@
                         <button type="submit">Send Message</button>
                     </form>
                     <p id="response"></p>
+
                     <script>
                         const form = document.getElementById('contact-form');
                         const responseElement = document.getElementById('response');
@@ -151,38 +152,42 @@
                         }
 
                         form.addEventListener('submit', async (event) => {
-                            // Prevent default form submission                                                     
+                            event.preventDefault(); // Prevent default form submission
 
-                            if (!grecaptcha.getResponse()) {
-                                event.preventDefault();
-                                alert('Please complete the reCAPTCHA before submitting.');
+                            // Get reCAPTCHA response
+                            const recaptchaResponse = grecaptcha.getResponse();
+
+                            // Check if reCAPTCHA was solved
+                            if (!recaptchaResponse) {
+                                alert('Please complete the reCAPTCHA.');
+                                return;
                             }
 
-                            // Submit the form data to the webhook
-                            const recaptchaResponse = grecaptcha.getResponse();
+                            // Create FormData object
                             const formData = new FormData(form);
+
+                            // Append reCAPTCHA response
                             formData.append('g-recaptcha-response', recaptchaResponse);
+
                             try {
-                                const result = await fetch('https://hook.us2.make.com/h7vxtn6nh4j494frxsbg8mhfpkgbsest', {
+                                // Send form data to your webhook
+                                const response = await fetch('https://hook.us2.make.com/h7vxtn6nh4j494frxsbg8mhfpkgbsest', {
                                     method: 'POST',
                                     body: formData,
                                 });
 
-                                if (result.ok) {
-                                    responseElement.textContent = 'Message sent successfully!';
-                                    form.reset();
-                                    grecaptcha.reset();
+                                if (response.ok) {
+                                    alert('Message sent successfully!');
+                                    form.reset(); // Clear the form
+                                    grecaptcha.reset(); // Reset reCAPTCHA
                                 } else {
-                                    responseElement.textContent = 'Failed to send your message. Please try again.';
+                                    alert('Failed to send your message. Please try again.');
                                 }
                             } catch (error) {
-                                responseElement.textContent = 'An error occurred. Please try again later.';
+                                alert('An error occurred. Please try again later.');
                             }
-
-                        });                                        
+                        });
                     </script>
-
-
                 </section>
             </div>
             <!-- /Content -->
