@@ -125,6 +125,7 @@
                         <!-- reCAPTCHA widget -->
                         <div class="g-recaptcha" data-sitekey="6LfTQ4wqAAAAAGR7vwedKryGbV-xvgUs_zLXqI3h"></div>
                         <br>
+
                         <button type="submit">Send Message</button>
                     </form>
                     <p id="response"></p>
@@ -156,9 +157,9 @@
 
                             if (!recaptchaResponse) {
 
-                                alert('Please complete the reCAPTCHA before submitting.');
-                                return;
+                                alert('Please complete the reCAPTCHA before submitting.');                                
                             }
+
                             // Submit the form data to the webhook
                             const formData = new FormData(form);
                             formData.append('g-recaptcha-response', recaptchaResponse);
