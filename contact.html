@@ -1,23 +1,63 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
+<!--
+	Monochromed by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-58XPTFBM');</script>
+    <!-- End Google Tag Manager -->
+    <title>Stephen J. Lu</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <meta name="description" content="Author of CSI to CEO: What the Dead Can Teach Us About Life and Leadership" />
+    <meta name="keywords" content="stephen,lu,forensic,leadership,training,center,csi,ceo,phi beta kappa" />
+    <link href="http://fonts.googleapis.com/css?family=Oxygen:400,300,700" rel="stylesheet" type="text/css">
+    <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcsOYwqAAAAAEFxn_3lZKGfaM4uSKIvtpi-djUO"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-panels.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/uikit.js"></script>
+    <script src="js/uikit-icons.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="css/skel-noscript.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/uikit.css" />
+    </noscript>
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css"><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css"><![endif]-->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
         form {
             max-width: 400px;
             margin: auto;
         }
-        label, input, textarea {
+
+        label,
+        input,
+        textarea {
             display: block;
             width: 100%;
             margin-bottom: 10px;
         }
+
+        input:invalid,
+        textarea:invalid {
+            border-color: red;
+        }
+
         button {
             background: #4CAF50;
             color: white;
@@ -27,19 +67,157 @@
         }
     </style>
 </head>
-<body>
-    <h1>Contact Us</h1>
-    <form id="contact-form" action="https://hook.us2.make.com/h7vxtn6nh4j494frxsbg8mhfpkgbsest" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+<body class="homepage">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58XPTFBM" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <a href="#" uk-totop class="float-top uk-icon" aria-label="Return to top" uk-tooltip="Return to top"></a>
+    <!-- Header -->
+    <div id="header" uk-parallax="opacity: 1,0; bgy: -75; end: 25%;">
+        <div class="container" style="padding-bottom: 100px">
+            <!-- Logo -->
+            <div id="logo" uk-parallax="opacity: 1,0">
+                <img class="uk-visible@m" src="images/initials.png" alt="Stephen J. Lu" width="350px"></img>
+                <br>
+                <h1><a href="index.html">Stephen J. Lu</a></h1>
+                <span>Author of <i>CSI to CEO</i><br>
+                    Retired CSI and Forensic Firearms Examiner<br>
+                    EMBA | SHRM-CP | Phi Beta Kappa</span>
+            </div>
+            <!-- Nav -->
+            <nav id="nav" uk-parallax="opacity: 1,0">
+                <ul>
+                    <li class="active"><a href="index.html#main">Home</a></li>
+                    <li><a href="about.html#main">About</a></li>
+                    <li><a href="/ledger/">Ledger</a></li>
+                    <li><a href="https://www.csitoceo.com" target="_blank" rel="noopener noreferrer">CSI to CEO</a></li>
+                    <li><a href="gallery.html#main">Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- Header -->
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+    <!-- Main -->
+    <div id="main">
+        <div class="container">
+            <!-- Content -->
+            <div class="8u skel-cell-important">
+                <section id="content">
+                    <header>
+                        <h2>Contact Stephen</h2>
+                    </header>
 
-        <button type="submit">Send Message</button>
-    </form>
+                    <form id="contact-form">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+
+                        <button type="submit">Send Message</button>
+                    </form>
+                    <p id="response"></p>
+                    <script>
+                        const form = document.getElementById('contact-form');
+                        const responseElement = document.getElementById('response');
+
+                        form.addEventListener('submit', async (event) => {
+                            event.preventDefault(); // Prevent default form submission
+
+                            // Execute reCAPTCHA v3
+                            grecaptcha.execute('6LcsOYwqAAAAAEFxn_3lZKGfaM4uSKIvtpi-djUO', { action: 'submit' }).then(async (token) => {
+                                const formData = new FormData(form);
+                                formData.append('g-recaptcha-response', token);
+
+                                // Client-side validation
+                                const name = document.getElementById('name').value.trim();
+                                const email = document.getElementById('email').value.trim();
+                                const message = document.getElementById('message').value.trim();
+
+                                if (!name || !email || !message) {
+                                    responseElement.textContent = 'All fields are required.';
+                                    return;
+                                }
+
+                                // Validate email format (extra validation for demonstration)
+                                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                                if (!emailRegex.test(email)) {
+                                    responseElement.textContent = 'Please enter a valid email address.';
+                                    return;
+                                }
+
+                                // Submit the form data to the webhook
+                                try {
+                                    const formData = new FormData(form);
+                                    const result = await fetch('https://hook.us2.make.com/h7vxtn6nh4j494frxsbg8mhfpkgbsest', {
+                                        method: 'POST',
+                                        body: formData,
+                                    });
+
+                                    if (result.ok) {
+                                        responseElement.textContent = 'Message sent successfully!';
+                                    } else {
+                                        responseElement.textContent = 'Failed to send your message. Please try again.';
+                                    }
+                                } catch (error) {
+                                    responseElement.textContent = 'An error occurred. Please try again later.';
+                                }
+                            });
+                        });
+                    </script>
+
+
+                </section>
+            </div>
+            <!-- /Content -->
+
+
+        </div>
+    </div>
+    <!-- Main -->
+    <!-- Copyright -->
+    <div id="copyright">
+        <center>
+            <div class="4u container">
+                <div class="uk-flex-center uk-text-center" uk-grid>
+                    <div><a href="https://www.linkedin.com/in/stephenjlu/" uk-icon="icon: linkedin"
+                            aria-label="LinkedIn" uk-tooltip="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+                    </div>
+                    <div><a href="https://www.facebook.com/StephenJLu" uk-icon="icon: facebook" aria-label="Facebook"
+                            uk-tooltip="Facebook" target="_blank" rel="noopener noreferrer"></a></div>
+                    <div><a href="https://www.instagram.com/stephen.j.lu/" uk-icon="icon: instagram"
+                            aria-label="Instagram" uk-tooltip="Instagram" target="_blank" rel="noopener noreferrer"></a>
+                    </div>
+                    <div><a href="https://www.threads.net/@stephen.j.lu" uk-icon="icon: threads" aria-label="Threads"
+                            uk-tooltip="Threads" target="_blank" rel="noopener noreferrer"></a></div>
+                    <div><a href="https://bsky.app/profile/stephenjlu.com" uk-icon="icon: bluesky" aria-label="Bluesky"
+                            uk-tooltip="Bluesky" target="_blank" rel="noopener noreferrer"></a></div>
+                    <div><a href="https://soundcloud.com/stephen-j-lu" uk-icon="icon: soundcloud"
+                            aria-label="SoundCloud" uk-tooltip="SoundCloud" target="_blank"
+                            rel="noopener noreferrer"></a></div>
+                    <div><a href="https://www.youtube.com/@stephenjlu" uk-icon="icon: youtube" aria-label="YouTube"
+                            uk-tooltip="YouTube" target="_blank" rel="noopener noreferrer"></a></div>
+                    <div><a href="https://www.google.com/search?q=Stephen+J.+Lu" uk-icon="icon: google"
+                            aria-label="Google" uk-tooltip="Google" target="_blank" rel="noopener noreferrer"></a></div>
+                </div>
+                <p><img src="images/footer-initials.png" width="150px" alt="Stephen J. Lu"></img></p>
+                <p>© 2024 Stephen J. Lu <br>
+                    <font size="-1">Page Design by <a href="http://templated.co" target="_blank"
+                            rel="noopener noreferrer">TEMPLATED</a> | Enhanced with <a href="https://www.getuikit.com"
+                            target="_blank" rel="noopener noreferrer">UIKit</a></font>
+                </p>
+                <br>
+            </div>
+        </center>
+    </div>
 </body>
+
 </html>
