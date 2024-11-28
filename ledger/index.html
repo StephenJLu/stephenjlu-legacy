@@ -24,6 +24,7 @@
   <script src="https://unpkg.com/magic-grid/dist/magic-grid.min.js"></script>
   <script src="js/uikit.js"></script>
   <script src="js/uikit-icons.js"></script>
+  <script src="js/bsky-embed.es.js"></script>
   <link rel="stylesheet" href="index.css">
   <link rel="icon" href="https://avatars.githubusercontent.com/u/115909334?v=4" type="image/png">
 </head>
@@ -66,6 +67,16 @@
     </div>
   </div>
   <div id="display">
+    <div id="feed">
+      <h1>Feed.</h1>
+      <a href="https://github.com/StephenJLu/stephenjlu" target="_blank" rel="noopener noreferrer">
+        <section>
+          <bsky-embed username="stephenjlu.com" mode="dark" limit="5" link-target="_blank" link-image="true"
+            load-more="true" custom-styles=".border-slate-300 { border-color: blue; }">
+          </bsky-embed>
+        </section>
+      </a>
+    </div>
     <div id="work">
       <h1>Work.</h1>
       <div class="projects" id="work_section">
