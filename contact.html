@@ -131,47 +131,52 @@
                     <script>
                         const form = document.getElementById('contact-form');
                         const responseElement = document.getElementById('response');
+                        const recaptchaResponse = grecaptcha.getResponse();
+
+                        // Client-side validation
+                        const name = document.getElementById('name').value.trim();
+                        const email = document.getElementById('email').value.trim();
+                        const message = document.getElementById('message').value.trim();
+
+                        if (!name || !email || !message) {
+                            responseElement.textContent = 'All fields are required.';
+                            return;
+                        }
+
+                        // Validate email format (extra validation for demonstration)
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(email)) {
+                            responseElement.textContent = 'Please enter a valid email address.';
+                            return;
+                        }
+
+                        // Submit the form data to the webhook
 
                         form.addEventListener('submit', async (event) => {
                             // Prevent default form submission                          
-                            if (!grecaptcha.getResponse()) {
+                            if (!recaptchaResponse) {
                                 event.preventDefault();
                                 alert('Please complete the reCAPTCHA before submitting.');
-                            }
-
-                            // Client-side validation
-                            const name = document.getElementById('name').value.trim();
-                            const email = document.getElementById('email').value.trim();
-                            const message = document.getElementById('message').value.trim();
-
-                            if (!name || !email || !message) {
-                                responseElement.textContent = 'All fields are required.';
                                 return;
                             }
-
-                            // Validate email format (extra validation for demonstration)
-                            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                            if (!emailRegex.test(email)) {
-                                responseElement.textContent = 'Please enter a valid email address.';
-                                return;
-                            }
-
-                            // Submit the form data to the webhook
-                            try {
+                            else {
                                 const formData = new FormData(form);
-                                const result = await fetch('https://hook.us2.make.com/h7vxtn6nh4j494frxsbg8mhfpkgbsest', {
-                                    method: 'POST',
-                                    body: formData,
-                                });
+                                formData.append('g-recaptcha-response', recaptchaResponse);
+                                try {
+                                    const result = await fetch('https://hook.us2.make.com/h7vxtn6nh4j494frxsbg8mhfpkgbsest', {
+                                        method: 'POST',
+                                        body: formData,
+                                    });
 
-                                if (result.ok) {
-                                    responseElement.textContent = 'Message sent successfully!';
-                                    form.reset();
-                                } else {
-                                    responseElement.textContent = 'Failed to send your message. Please try again.';
+                                    if (result.ok) {
+                                        responseElement.textContent = 'Message sent successfully!';
+                                        form.reset();
+                                    } else {
+                                        responseElement.textContent = 'Failed to send your message. Please try again.';
+                                    }
+                                } catch (error) {
+                                    responseElement.textContent = 'An error occurred. Please try again later.';
                                 }
-                            } catch (error) {
-                                responseElement.textContent = 'An error occurred. Please try again later.';
                             }
                         });                                        
                     </script>
