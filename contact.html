@@ -171,6 +171,7 @@
                                     if (result.ok) {
                                         responseElement.textContent = 'Message sent successfully!';
                                         form.reset();
+                                        grecaptcha.reset();
                                     } else {
                                         responseElement.textContent = 'Failed to send your message. Please try again.';
                                     }
