@@ -20,7 +20,7 @@ document.getElementById("contactForm").addEventListener("submit", async (event) 
 
     try {
         // Send data to SendLayer API
-        const response = await fetch("https://api.sendlayer.com/v1/email/send", {
+        const response = await fetch("https://console.sendlayer.com/api/v1/email", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
