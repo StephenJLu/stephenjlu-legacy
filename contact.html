@@ -131,7 +131,6 @@
                     <script>
                         const form = document.getElementById('contact-form');
                         const responseElement = document.getElementById('response');
-                        const recaptchaResponse = grecaptcha.getResponse();
 
                         // Client-side validation
                         const name = document.getElementById('name').value.trim();
@@ -150,35 +149,36 @@
                             return;
                         }
 
-                        // Submit the form data to the webhook
-
                         form.addEventListener('submit', async (event) => {
-                            // Prevent default form submission                          
+                            event.preventDefault();         // Prevent default form submission                          
+
+                            const recaptchaResponse = grecaptcha.getResponse();
+
                             if (!recaptchaResponse) {
-                                event.preventDefault();
+
                                 alert('Please complete the reCAPTCHA before submitting.');
                                 return;
                             }
-                            else {
-                                const formData = new FormData(form);
-                                formData.append('g-recaptcha-response', recaptchaResponse);
-                                try {
-                                    const result = await fetch('https://hook.us2.make.com/h7vxtn6nh4j494frxsbg8mhfpkgbsest', {
-                                        method: 'POST',
-                                        body: formData,
-                                    });
+                            // Submit the form data to the webhook
+                            const formData = new FormData(form);
+                            formData.append('g-recaptcha-response', recaptchaResponse);
+                            try {
+                                const result = await fetch('https://hook.us2.make.com/h7vxtn6nh4j494frxsbg8mhfpkgbsest', {
+                                    method: 'POST',
+                                    body: formData,
+                                });
 
-                                    if (result.ok) {
-                                        responseElement.textContent = 'Message sent successfully!';
-                                        form.reset();
-                                        grecaptcha.reset();
-                                    } else {
-                                        responseElement.textContent = 'Failed to send your message. Please try again.';
-                                    }
-                                } catch (error) {
-                                    responseElement.textContent = 'An error occurred. Please try again later.';
+                                if (result.ok) {
+                                    responseElement.textContent = 'Message sent successfully!';
+                                    form.reset();
+                                    grecaptcha.reset();
+                                } else {
+                                    responseElement.textContent = 'Failed to send your message. Please try again.';
                                 }
+                            } catch (error) {
+                                responseElement.textContent = 'An error occurred. Please try again later.';
                             }
+
                         });                                        
                     </script>
 
