@@ -151,13 +151,13 @@
                         }
 
                         form.addEventListener('submit', async (event) => {
-                                    // Prevent default form submission                          
+                            // Prevent default form submission                          
 
                             const recaptchaResponse = grecaptcha.getResponse();
 
-                            if (!recaptchaResponse) {
-                                event.preventDefault(); 
-                                alert('Please complete the reCAPTCHA before submitting.');                                
+                            if (!grecaptcha.getResponse()) {
+                                event.preventDefault();
+                                alert('Please complete the reCAPTCHA before submitting.');
                             }
 
                             // Submit the form data to the webhook
