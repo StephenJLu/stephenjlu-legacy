@@ -152,10 +152,11 @@
                         }
 
                         form.addEventListener('submit', async (event) => {
-                            event.preventDefault(); // Prevent default form submission
+                            // Prevent default form submission
                             
                             // Check if reCAPTCHA was solved
                             if (!grecaptcha.getResponse()) {
+                                event.preventDefault(); 
                                 alert('Please complete the reCAPTCHA.');
                                 return;
                             }
