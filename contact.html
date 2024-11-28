@@ -133,7 +133,11 @@
                         const responseElement = document.getElementById('response');
 
                         form.addEventListener('submit', async (event) => {
-                            event.preventDefault(); // Prevent default form submission                           
+                            // Prevent default form submission                          
+                            if (!grecaptcha.getResponse()) {
+                                event.preventDefault();
+                                alert('Please complete the reCAPTCHA before submitting.');
+                            }
 
                             // Client-side validation
                             const name = document.getElementById('name').value.trim();
