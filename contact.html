@@ -124,7 +124,7 @@
                         <textarea id="message" name="message" rows="5" required></textarea>
 
                         <!-- reCAPTCHA widget -->
-                        <div class="g-recaptcha" data-sitekey="your-site-key"></div><br>
+                        <div class="g-recaptcha" data-sitekey="6LfTQ4wqAAAAAGR7vwedKryGbV-xvgUs_zLXqI3h"></div><br>
 
                         <button type="submit">Send Message</button>
                     </form>
@@ -134,7 +134,10 @@
                         const responseElement = document.getElementById('response');
 
                         form.addEventListener('submit', async (event) => {
-                            event.preventDefault(); // Prevent default form submission
+                            if (!grecaptcha.getResponse()) {
+                                event.preventDefault();
+                                alert('Please complete the reCAPTCHA before submitting.');
+                            }
 
                             // Client-side validation
                             const name = document.getElementById('name').value.trim();
@@ -156,6 +159,7 @@
                             // Submit the form data to the webhook
                             try {
                                 const formData = new FormData(form);
+                                formData.append('g-recaptcha-response', grecaptcha.getResponse());
                                 const result = await fetch('https://hook.us2.make.com/h7vxtn6nh4j494frxsbg8mhfpkgbsest', {
                                     method: 'POST',
                                     body: formData,
