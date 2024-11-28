@@ -151,9 +151,7 @@
                         }
 
                         form.addEventListener('submit', async (event) => {
-                            // Prevent default form submission                          
-
-                            const recaptchaResponse = grecaptcha.getResponse();
+                            // Prevent default form submission                                                     
 
                             if (!grecaptcha.getResponse()) {
                                 event.preventDefault();
@@ -161,6 +159,7 @@
                             }
 
                             // Submit the form data to the webhook
+                            const recaptchaResponse = grecaptcha.getResponse();
                             const formData = new FormData(form);
                             formData.append('g-recaptcha-response', recaptchaResponse);
                             try {
