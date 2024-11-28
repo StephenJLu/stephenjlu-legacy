@@ -26,7 +26,7 @@
     <link href="http://fonts.googleapis.com/css?family=Oxygen:400,300,700" rel="stylesheet" type="text/css">
     <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LcsOYwqAAAAAEFxn_3lZKGfaM4uSKIvtpi-djUO"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="js/skel.min.js"></script>
     <script src="js/skel-panels.min.js"></script>
     <script src="js/init.js"></script>
@@ -122,20 +122,18 @@
                         <label for="message">Message:</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
 
+                        <!-- reCAPTCHA widget -->
+                        <div class="g-recaptcha" data-sitekey="6LfTQ4wqAAAAAGR7vwedKryGbV-xvgUs_zLXqI3h"></div>
+
                         <button type="submit">Send Message</button>
                     </form>
                     <p id="response"></p>
-                    <script>
+                    <script>                        
                         const form = document.getElementById('contact-form');
-                        const responseElement = document.getElementById('response');
+                        const responseElement = document.getElementById('response');                        
 
                         form.addEventListener('submit', async (event) => {
-                            event.preventDefault(); // Prevent default form submission
-
-                            // Execute reCAPTCHA v3
-                            grecaptcha.execute('6LcsOYwqAAAAAEFxn_3lZKGfaM4uSKIvtpi-djUO', { action: 'submit' }).then(async (token) => {
-                                const formData = new FormData(form);
-                                formData.append('g-recaptcha-response', token);
+                            event.preventDefault(); // Prevent default form submission                           
 
                                 // Client-side validation
                                 const name = document.getElementById('name').value.trim();
@@ -156,6 +154,7 @@
 
                                 // Submit the form data to the webhook
                                 try {
+                                    const formData = new FormData(form);
                                     const result = await fetch('https://hook.us2.make.com/h7vxtn6nh4j494frxsbg8mhfpkgbsest', {
                                         method: 'POST',
                                         body: formData,
