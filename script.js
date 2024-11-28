@@ -11,7 +11,7 @@ document.getElementById("contactForm").addEventListener("submit", async (event) 
     const payload = {
         to: "stephen@stephenjlu.com", // Set this to the recipient email (SendLayer email account for testing)
         from: "hello@stephenjlu.com", // Replace with a verified sender address
-        subject: subject,
+        subject: `${subject}`,
         ContentType: "HTML",
         HTMLContent: `<html><body><p>Message from <strong>${name}</strong> (${email}):<br>${message}</p></body></html>`
     };
