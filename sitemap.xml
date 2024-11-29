@@ -1,42 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://www.stephenjlu.com/</loc>
-  <lastmod>2024-11-29T20:06:29+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://www.stephenjlu.com/about</loc>
-  <lastmod>2024-11-29T20:06:29+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.stephenjlu.com/ledger/</loc>
-  <lastmod>2024-11-29T20:06:29+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.stephenjlu.com/gallery</loc>
-  <lastmod>2024-11-29T20:06:29+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.stephenjlu.com/contact</loc>
-  <lastmod>2024-11-29T20:06:29+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.stephenjlu.com/docs/sjlu-public-cv.pdf</loc>
-  <lastmod>2024-11-29T20:06:29+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>http://www.StephenJLu.com</loc>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>http://index.html</loc>
+    <lastmod>2024-11-28</lastmod>
+    <priority>0.9</priority>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>http://gallery.html</loc>
+    <lastmod>2024-11-28</lastmod>
+    <priority>0.9</priority>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>http://contact.html</loc>
+    <lastmod>2024-11-28</lastmod>
+    <priority>0.9</priority>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>http://about.html</loc>
+    <lastmod>2024-11-28</lastmod>
+    <priority>0.9</priority>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>http://ledger/index.html</loc>
+    <lastmod>2024-11-28</lastmod>
+    <priority>0.9</priority>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>http://ledger/blog/On-the-Loss-of-My-Voice/index.html</loc>
+    <lastmod>2024-11-26</lastmod>
+    <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>http://ledger/blog/Something-Just-for-Myself/index.html</loc>
+    <lastmod>2024-11-26</lastmod>
+    <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>http://ledger/blog/What-Public-Service-Means-to-Me/index.html</loc>
+    <lastmod>2024-11-26</lastmod>
+    <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+  </url>
 </urlset>
