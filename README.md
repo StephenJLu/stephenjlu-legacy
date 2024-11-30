@@ -9,7 +9,7 @@
 
 https://www.StephenJLu.com
 
-## Last Updated
+## Last Major Update 📆
 
 November 30, 2024
 
