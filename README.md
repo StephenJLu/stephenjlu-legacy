@@ -1,7 +1,33 @@
 ## Hi there 👋
 
-- 🔭 I’m currently working on _CSI to CEO_
-- 🌱 I’m learning American Sign Language (ASL)
-- 👯 I’m looking to collaborate on forensic leadership development
-- ⚡ Fun fact: I've gone skydiving twice and I used to work crime scenes
+* 🔭 I’m currently working on _CSI to CEO_
+* 🌱 I’m learning American Sign Language (ASL)
+* 👯 I’m looking to collaborate on forensic leadership development and ALS patient support
+* ⚡ Fun fact: I've gone skydiving twice and I used to work crime scenes
 
+## Web URL 🌎
+
+https://www.StephenJLu.com
+
+## Last Updated
+
+November 30, 2024
+
+## Languages Used 💻
+
+* HTML
+* CSS
+* Javascript
+
+## Tools and Technologies 🔧
+
+* [Templated](https://TEMPLATED.co)
+* [UIKit](https://getUIKit.com)
+* [GitFolio](https://github.com/imfunniee/gitfolio)
+* [Bluesky Embed](https://github.com/Vincenius/bsky-embed)
+
+## Features 🌟
+
+* Parallax animations
+* Photo slideshow
+* Basic email contact form
