@@ -31,3 +31,7 @@ November 30, 2024
 * Parallax animations
 * Photo slideshow
 * Basic email contact form
+
+## Contact Me 📨
+
+[Contact Stephen](https://www.stephenjlu.com/contact#main)
