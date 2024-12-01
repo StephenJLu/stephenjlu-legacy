@@ -42,6 +42,58 @@ a:hover,
   color: #0f6ecd;
   text-decoration: underline;
 }
+
+
+/* CUSTOM ENTRIES */
+
+form {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        input,
+        textarea {
+          border: none;
+          border-bottom: 2px solid #000;
+          background-color: transparent;
+          color: #000;
+          padding: 10px 0;
+          font-size: 16px;
+          outline: none;  
+          display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            
+        }
+               
+        input::placeholder,
+        textarea::placeholder {
+          color: rgba(0, 0, 0, 0.7);
+          font-style: italic;
+        }
+
+        input:invalid,
+        textarea:invalid {
+            border-color: red;
+        }
+
+        button {
+            position: relative;
+            display: inline-block;
+            margin-top: 2em;
+            padding: 10px 20px;
+            border-color: #000;
+            background: transparent;
+            border-radius: 6px;
+            text-decoration: none;            
+            font-size: 16px;
+            color: #000;            
+            cursor: pointer;
+        }
+
+        /* END CUSTOM ENTRIES */
+
+
 /* Text-level semantics
  ========================================================================== */
 /*
@@ -388,7 +440,7 @@ pre code {
   outline: none;
 }
 :focus-visible {
-  outline: 2px dotted #333;
+  outline: none;
 }
 /* Selection pseudo-element
  ========================================================================== */

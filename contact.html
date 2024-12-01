@@ -37,46 +37,7 @@
         <link rel="stylesheet" href="css/uikit.css" />
     </noscript>
     <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css"><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css"><![endif]-->
-    <style>
-        form {
-            max-width: 400px;
-            margin: auto;
-        }
-
-        label,
-        input,
-        textarea {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-            border-radius: 6px;
-        }
-
-        input:invalid,
-        textarea:invalid {
-            border-color: red;
-        }
-
-        button {
-            position: relative;
-            display: inline-block;
-            margin-top: 2em;
-            padding: 0.8em 1.5em;
-            background: #4CAF50;
-            border-radius: 6px;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 1em;
-            color: #FFF;
-            -moz-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
-            -webkit-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
-            -o-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
-            -ms-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
-            transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
-            cursor: pointer;
-        }
-    </style>
+    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css"><![endif]-->    
 </head>
 
 <body class="homepage">
@@ -123,18 +84,12 @@
                     <header>
                         <h2>Contact Stephen</h2>
                     </header>
-                    <form id="contact-form">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
-
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-
-                        <button type="submit">Send Message</button>
-                    </form>
+                    <form id="contact-form" style="padding-top: 20px" uk-scrollspy="target: > input, textarea, button; cls: uk-animation-slide-bottom; delay: 500; repeat: true;">          
+                        <input type="text" id="name" name="name" placeholder="Name" required>          
+                        <input type="email" id="email" name="email" placeholder="Email" required>          
+                        <textarea id="message" name="message" rows="5" placeholder="Enter message here" required></textarea>
+                        <button type="submit"><span uk-icon="icon: mail"></span>&nbsp;&nbsp;Send Message</button>
+                      </form>
                     <p id="response"></p>
                     <script>
                         const form = document.getElementById('contact-form');
