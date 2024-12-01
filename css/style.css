@@ -32,7 +32,7 @@ em, i {
 }
 /* Don't forget to set this to something that matches the design */
 a {
-  color: #ff0000;
+  font-weight: bold;
 }
 a:hover {
   text-decoration: none;

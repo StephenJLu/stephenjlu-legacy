@@ -32,7 +32,8 @@ body {
  */
 a,
 .uk-link {
-  color: #1e87f0;
+  color: #000;
+  font-weight: bold;  
   text-decoration: none;
   cursor: pointer;
 }
@@ -40,7 +41,7 @@ a:hover,
 .uk-link:hover,
 .uk-link-toggle:hover .uk-link {
   color: #0f6ecd;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 
@@ -2878,7 +2879,7 @@ select.uk-form-width-xsmall {
  * Adopts `uk-icon`
  */
 .uk-close {
-  color: #999;
+  color: #666;
   transition: 0.1s ease-in-out;
   transition-property: color, opacity;
 }
