@@ -227,8 +227,7 @@ body {
   font-weight: bold;
 }
 
-#profile_img {
-  padding-top: 10px;
+#profile_img {  
   width: 180px;
   height: 180px;
   min-width: 180px;
