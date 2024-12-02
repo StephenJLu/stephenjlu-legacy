@@ -638,7 +638,7 @@ button.uk-icon:not(:disabled) {
  * Fix Firefox blurry SVG rendering: https://bugzilla.mozilla.org/show_bug.cgi?id=1046835
  */
 .uk-icon > * {
-  transform: translate(0, 0);
+  transform: translate(0, 5px);
 }
 /* Image modifier
  ========================================================================== */
@@ -651,10 +651,10 @@ button.uk-icon:not(:disabled) {
   width: 20px;
   height: 20px;  
   /* 1 */
-  background-position: 50% 75%;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: contain;
-  vertical-align: bottom;
+  vertical-align: middle;
   /* 2 */
   object-fit: scale-down;
   max-width: none;
