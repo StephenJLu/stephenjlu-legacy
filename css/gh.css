@@ -22,6 +22,13 @@
 }
 
 /* Main block */
+
+@media screen and (max-width: 768px) {
+    #gh {
+        display: none;
+    }
+}
+
 #gh {
     color: var(--gh-text-default-color);
     width: fit-content;
@@ -29,10 +36,12 @@
     padding-bottom: 50px;
     padding-left: 12px;
 }
+
 #gh a {
     text-decoration: none;
     color: var(--gh-text-inactive-color)
 }
+
 #gh a:hover {
     color: var(--gh-link-hover-color);
 }
@@ -41,11 +50,13 @@
 .ghCalendarTable {
     color: var(--gh-text-default-color);
     border-spacing: 3px;
-    border-collapse: separate;  
+    border-collapse: separate;
 }
+
 .ghCalendarTable tr {
     height: 10px;
 }
+
 .ghCalendarTable td {
     text-align: left;
     box-sizing: border-box;
@@ -60,23 +71,29 @@
     outline: 1px solid var(--gh-cell-outline-color);
     outline-offset: -2px;
 }
+
 .ghCalendarDayCell[data-level="NONE"] {
     background-color: var(--gh-cell-level0-color);
     border: none;
     outline: none;
 }
+
 .ghCalendarDayCell[data-level="FIRST_QUARTILE"] {
     background-color: var(--gh-cell-level1-color);
 }
+
 .ghCalendarDayCell[data-level="SECOND_QUARTILE"] {
     background-color: var(--gh-cell-level2-color);
 }
+
 .ghCalendarDayCell[data-level="THIRD_QUARTILE"] {
     background-color: var(--gh-cell-level3-color);
 }
+
 .ghCalendarDayCell[data-level="FOURTH_QUARTILE"] {
     background-color: var(--gh-cell-level4-color);
 }
+
 .ghCalendarDayCell span {
     visibility: hidden;
     position: absolute;
@@ -90,6 +107,7 @@
     border-radius: 6px;
     font-family: var(--gh-font-default-family);
 }
+
 .ghCalendarDayCell span::after {
     content: "";
     position: absolute;
@@ -99,9 +117,11 @@
     border-style: solid;
     border-color: var(--gh-cell-info-bg-color) transparent transparent transparent;
 }
+
 .ghCalendarDayCell:hover span {
     visibility: visible;
 }
+
 .ghCalendarLabel {
     font-size: 12px;
     position: absolute;
@@ -120,6 +140,7 @@
     border-top-right-radius: 6px;
     border: var(--gh-border-card-width, 1px) solid var(--gh-border-card-color);
 }
+
 .ghCalendarCanvas {
     display: flex !important;
     flex-direction: column;
@@ -135,14 +156,17 @@
     margin-bottom: var(--gh-base-size-4);
     height: 20px;
 }
+
 .ghCalendarHeader span {
     float: left;
 }
+
 .ghCalendarHeader div {
     display: flex;
     flex-direction: row;
     float: right;
 }
+
 .ghCalendarHeader div img {
     width: 20px;
     height: 20px;
@@ -155,6 +179,7 @@
 .ghThumbNail {
     padding: var(--gh-base-size-4, 4px);
 }
+
 .ghCalendarCardFooter {
     display: block;
     padding: var(--gh-base-size-4, 4px) var(--gh-base-size-32, 32px) !important;
@@ -163,19 +188,23 @@
     font-family: var(--gh-font-default-family);
     color: var(--gh-text-inactive-color);
 }
+
 .ghCalendarCardFooterLink {
     display: block;
     float: left;
 }
+
 .ghCalendarCardFooterColors {
     display: flex;
     flex-direction: row;
     float: right;
     align-items: center;
 }
+
 .ghCalendarCardFooterColors * {
     margin-right: var(--gh-base-size-4);
 }
+
 .ghCalendarCardFooterColors div {
     width: 10px;
     height: 10px;
