@@ -1,5 +1,5 @@
 async function fetchData(ghLogin) {
-    let response = await fetch(`https://lengthylyova.pythonanywhere.com/api/gh-contrib-graph/fetch-data/?githubLogin=${ghLogin}`, {method: "GET"});
+    let response = await fetch(`https://lengthylyova.pythonanywhere.com/api/gh-contrib-graph/fetch-data/?githubLogin=${ghLogin}`, { method: "GET" });
     let data = await response.json();
     console.log(data)
     return data['data']['user']
@@ -105,15 +105,14 @@ function init_header(total_contribs, ghLogin, avatarUrl) {
 function init_thumbnail() {
     const thumbnail = document.createElement("div");
     const thumbNailLink = document.createElement("a");
-    const thumbnailImage = document.createElement("img");
+    const thumbnailSpan = document.createElement("span");
+    const textNode = document.createTextNode("  gh-contrib-graph");
 
     thumbnail.className = "ghThumbNail";
     thumbNailLink.href = "https://github.com/lengthylyova/gh-contrib-graph";
-    thumbnailImage.src = "https://www.StephenJLu.com/images/thumbnail.png";
-    thumbnailImage.style.width = "150px";
-    thumbnailImage.style.marginTop = "10px";
-    thumbnailImage.alt = "GitHub Contribution Graph";
-    thumbNailLink.appendChild(thumbnailImage);
+    thumbnailSpan.setAttribute("uk-icon", "icon: github");    
+    thumbNailLink.appendChild(thumbnailSpan);
+    thumbNailLink.appendChild(textNode);
     thumbnail.appendChild(thumbNailLink);
     return thumbnail
 }

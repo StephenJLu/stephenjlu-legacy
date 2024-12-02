@@ -18,7 +18,7 @@
     --gh-text-default-color: #e6edf3;
     --gh-text-inactive-color: #848D97;
     --gh-link-hover-color: #2f81f7;
-    --gh-font-default-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    --gh-font-default-family: "Poppins", sans-serif;
 }
 
 /* Main block */
@@ -27,7 +27,7 @@
     width: fit-content;
     font-family: var(--gh-font-default-family);
     padding-bottom: 50px;
-    padding-left: 15px;
+    padding-left: 12px;
 }
 #gh a {
     text-decoration: none;
@@ -151,6 +151,10 @@
 }
 
 /* Footer */
+
+.ghThumbNail {
+    padding: var(--gh-base-size-4, 4px);
+}
 .ghCalendarCardFooter {
     display: block;
     padding: var(--gh-base-size-4, 4px) var(--gh-base-size-32, 32px) !important;
