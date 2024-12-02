@@ -1,38 +1,8 @@
 async function fetchData(ghLogin) {
-    const username = ghLogin; // Use the provided GitHub login
-    const accessToken = process.env.GITHUB_ACCESS_TOKEN; // Replace with your personal access token
-    const apiUrl = "https://api.github.com/graphql";
-
-    const query = `
-      query {
-        user(login: "${username}") {
-          contributionsCollection {
-            contributionCalendar {
-              totalContributions
-              weeks {
-                contributionDays {
-                  contributionCount
-                  date
-                }
-              }
-            }
-          }
-        }
-      }
-    `;
-
-    const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${accessToken}`
-        },
-        body: JSON.stringify({ query })
-    });
-
-    const data = await response.json();
-    console.log(data);
-    return data['data']['user'];
+    let response = await fetch(`https://lengthylyova.pythonanywhere.com/api/gh-contrib-graph/fetch-data/?githubLogin=${ghLogin}`, {method: "GET"});
+    let data = await response.json();
+    console.log(data)
+    return data['data']['user']
 }
 
 function init_table() {
@@ -139,7 +109,7 @@ function init_thumbnail() {
     const textNode = document.createTextNode("  gh-contrib-graph");
 
     thumbnail.className = "ghThumbNail";
-    thumbNailLink.href = "https://github.com/StephenJLu/gh-contrib-graph";
+    thumbNailLink.href = "https://github.com/lengthylyova/gh-contrib-graph";
     thumbnailSpan.setAttribute("uk-icon", "icon: github");    
     thumbNailLink.appendChild(thumbnailSpan);
     thumbNailLink.appendChild(textNode);
