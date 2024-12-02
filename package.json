@@ -4,5 +4,10 @@
   "description": "This is a dummy package.json file created by Prepros to manage packages with NPM. You can edit this file to add your own information.",
   "dependencies": {
     "bsky-embed": "^0.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "prettier": "^3.4.1",
+    "prettier-eslint": "^16.3.0"
   }
 }
