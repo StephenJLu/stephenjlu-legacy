@@ -1,8 +1,38 @@
 async function fetchData(ghLogin) {
-    let response = await fetch(`https://lengthylyova.pythonanywhere.com/api/gh-contrib-graph/fetch-data/?githubLogin=${ghLogin}`, { method: "GET" });
-    let data = await response.json();
-    console.log(data)
-    return data['data']['user']
+    const username = ghLogin; // Use the provided GitHub login
+    const accessToken = process.env.GITHUB_ACCESS_TOKEN; // Replace with your personal access token
+    const apiUrl = "https://api.github.com/graphql";
+
+    const query = `
+      query {
+        user(login: "${username}") {
+          contributionsCollection {
+            contributionCalendar {
+              totalContributions
+              weeks {
+                contributionDays {
+                  contributionCount
+                  date
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+
+    const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${accessToken}`
+        },
+        body: JSON.stringify({ query })
+    });
+
+    const data = await response.json();
+    console.log(data);
+    return data['data']['user'];
 }
 
 function init_table() {
