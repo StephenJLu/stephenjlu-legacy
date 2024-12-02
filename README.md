@@ -25,6 +25,7 @@ November 30, 2024
 * [UIKit](https://getUIKit.com)
 * [GitFolio](https://github.com/imfunniee/gitfolio)
 * [Bluesky Embed](https://github.com/Vincenius/bsky-embed)
+* [Github Contribution Graph](https://github.com/lengthylyova/gh-contrib-graph)
 
 ## Features 🌟
 
