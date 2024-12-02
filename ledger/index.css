@@ -591,8 +591,8 @@ body {
  * 10. Let the container fit the height of the icon
  */
  .uk-icon {
-  /* 1 */
-  margin: 0;
+  /* 1 */  
+  margin-top: 0;
   /* 2 */
   border: none;
   /* 3 */
@@ -638,7 +638,7 @@ button.uk-icon:not(:disabled) {
  * Fix Firefox blurry SVG rendering: https://bugzilla.mozilla.org/show_bug.cgi?id=1046835
  */
 .uk-icon > * {
-  transform: translate(0, 5px);
+  transform: translateY(5px);
 }
 /* Image modifier
  ========================================================================== */
