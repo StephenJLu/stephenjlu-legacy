@@ -605,7 +605,7 @@ body {
   /* 6 */
   text-transform: none;
   /* 7. */
-  padding-top: 5px;
+  padding-top: 0;
   background-color: transparent;
   /* 8 */
   display: inline-block;
@@ -650,6 +650,7 @@ button.uk-icon:not(:disabled) {
 .uk-icon-image {
   width: 20px;
   height: 20px;
+  padding-top: 5px
   /* 1 */
   background-position: 50% 50%;
   background-repeat: no-repeat;
