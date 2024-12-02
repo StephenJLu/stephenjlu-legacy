@@ -139,7 +139,7 @@ function init_thumbnail() {
     const textNode = document.createTextNode("  gh-contrib-graph");
 
     thumbnail.className = "ghThumbNail";
-    thumbNailLink.href = "https://github.com/lengthylyova/gh-contrib-graph";
+    thumbNailLink.href = "https://github.com/StephenJLu/gh-contrib-graph";
     thumbnailSpan.setAttribute("uk-icon", "icon: github");    
     thumbNailLink.appendChild(thumbnailSpan);
     thumbNailLink.appendChild(textNode);
