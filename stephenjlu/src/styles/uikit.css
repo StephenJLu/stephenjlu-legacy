@@ -29,7 +29,7 @@ body {
 }
 
 .storybook-header {
-  background-color: transparent;
+  background-color: #000;
   position: relative;
 }
 
