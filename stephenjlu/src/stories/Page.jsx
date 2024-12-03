@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 
 import { Header } from "./Header";
 import "./page.css";
-import "../../src/styles/uikit.css";
 
 export const Page = () => {
   const [user, setUser] = React.useState();
