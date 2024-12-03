@@ -1,7 +1,5 @@
 /** @type { import('@storybook/react').Preview } */
 
-import "../src/styles/uikit.css";
-
 const preview = {
   parameters: {
     controls: {
