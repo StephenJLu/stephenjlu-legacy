@@ -31,29 +31,5 @@
     <lastmod>2024-11-28</lastmod>
     <priority>0.9</priority>
     <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>http://ledger/index.html</loc>
-    <lastmod>2024-11-28</lastmod>
-    <priority>0.9</priority>
-    <changefreq>hourly</changefreq>
-  </url>
-  <url>
-    <loc>http://ledger/blog/On-the-Loss-of-My-Voice/index.html</loc>
-    <lastmod>2024-11-26</lastmod>
-    <priority>0.8</priority>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>http://ledger/blog/Something-Just-for-Myself/index.html</loc>
-    <lastmod>2024-11-26</lastmod>
-    <priority>0.8</priority>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>http://ledger/blog/What-Public-Service-Means-to-Me/index.html</loc>
-    <lastmod>2024-11-26</lastmod>
-    <priority>0.8</priority>
-    <changefreq>daily</changefreq>
-  </url>
+  </url>    
 </urlset>
