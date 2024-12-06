@@ -41,7 +41,7 @@ Essentially, this architecture creates a durable, reusable, and testable library
 
 If you want to skip ahead and view the finished story, [check out the live Storybook](https://storybook.stephenjlu.com/?path=/story/menu-bar--default).
 
-## CSS Formatting
+## CSS Styling
 
 With anything I develop, I first develop the visual look. Transitioning into the component mindset took me a little adjustment, since I was so used to hardcoding everything with HTML and CSS. I now had to think in props and args. Here is the styling I employed for my black menu bar:
 
@@ -57,7 +57,11 @@ With anything I develop, I first develop the visual look. Transitioning into the
   font-family: 'Atlas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   border-radius: 30px;
 }
+```
 
+List Items:
+
+```css
 .storybook-menu-bar__list {
   list-style: none;
   display: flex;
@@ -81,7 +85,11 @@ With anything I develop, I first develop the visual look. Transitioning into the
   border-radius: 3em;
   transition: background-color 0.3s ease;
 }
+```
 
+Active classes:
+
+```css
 /* This class is for active menu items */
 .storybook-menu-bar__button.storybook-menu-bar__active {
   background-color: rgba(255, 255, 255, 0.9);
@@ -97,7 +105,11 @@ With anything I develop, I first develop the visual look. Transitioning into the
 .storybook-menu-bar__button.storybook-menu-bar__active:hover {
   background-color: rgba(255, 255, 255, 1);
 }
+```
 
+And the hover animation:
+
+```css
 /* and here is the hover animation */
 .storybook-menu-bar__button:hover {
   background-color: rgba(255, 255, 255, 0.75);
@@ -106,21 +118,39 @@ With anything I develop, I first develop the visual look. Transitioning into the
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { /* keyframe designations: this is the return to "ground" */
+  0%, 20%, 50%, 80%, 100% { /* keyframe designations: this is the return to 
+"ground" */
     transform: translateY(0);
   }
   40% {
     transform: translateY(-10px); /* This is the first higher bounce */
   }
   60% {
-    transform: translateY(-5px); /* This is the second bounce, lower than the first */
+    transform: translateY(-5px); /* This is the second bounce, lower than 
+the first */
   }
 }
 ```
 
 ## Functions and Props
 
-Now for the meat of the menu bar. Here, when the user clicked on a menu item, I wanted the function to return its value, make it active, and wrap it in the active CSS class. Check out the code below:
+Now for the meat of the menu bar. Here, when the user clicked on a menu item, I wanted the function to return its value, make it active, and wrap it in the active CSS class.
+
+---
+
+### ***A Note about React***
+
+One important thing to understand about React: functions should not modify any incoming props. It’s essentially a bottom-to-top architecture, and a top-to-bottom interaction. You start with your basic building blocks (components), combining and building them on top of each other into your higher-level components.
+
+So, for example, if I had a function importing the variable `X`, that function should not modify `X` in any way. It should use `X` to modify its own return. This is because React follows a unidirectional data flow, where data is passed from parent to child components. Modifying props would break this flow and lead to unpredictable behavior. Instead, components should use props to render UI and manage their own state if they need to track changes or perform updates. This approach helps maintain a clear separation of function and ensures that components remain predictable and easy to debug.
+
+This was one of the major adjustments I had to get through to really understand React.
+
+---
+
+Back to the menu bar. Check out the code below.
+
+`MenuBar` exports:
 
 ```typescript
 /** MenuBar.tsx */
@@ -137,18 +167,24 @@ export interface MenuItem {
 export interface MenuBarProps {
   /** Array of menu items */
   items: MenuItem[];
-  /** Optional background color for the menu bar. I might want to change the background
-color in different areas. I might not, but it's good to have the option. */
+  /** Optional background color for the menu bar. I might want to change the 
+background color in different areas. I might not, but it's good to have the 
+option. */
   backgroundColor?: string;
-  /** Callback when a menu item is selected. Actual actions will occur in the higher
-level component. */
+  /** Callback when a menu item is selected. Actual actions will occur in the 
+higher level component. */
   onSelect?: (item: MenuItem) => void;
   /** The currently active item */
   activeItem?: string;
 }
+```
 
+Primary `MenuBar` logic:
+
+```typescript
 /** Primary UI component for navigation */
-export const MenuBar = ({ items, backgroundColor, onSelect, activeItem }: MenuBarProps) => {
+export const MenuBar = ({ items, backgroundColor, onSelect, activeItem }: 
+MenuBarProps) => {
   const [localactiveItem, setLocalActiveItem] = useState(activeItem || null);
 /** The effect of clicking -> setting the active item */
   useEffect(() => {
@@ -160,12 +196,17 @@ export const MenuBar = ({ items, backgroundColor, onSelect, activeItem }: MenuBa
     if (item.onClick) {
       item.onClick();
     }
-/** The result of clicking -> Parent component is notified of the selected item */
+/** The result of clicking -> Parent component is notified of the selected 
+item */
     if (onSelect) {
       onSelect(item);
     }
   };
+```
 
+And now, the rendering:
+
+```typescript
 /** Rendering the menu bar and all the items. Wraps active items in the 
 CSS active class */
   return (
@@ -177,7 +218,8 @@ CSS active class */
               type="button"
               onClick={() => handleClick(item)}
               className={`storybook-menu-bar__button ${
-                localactiveItem === item.label ? 'storybook-menu-bar__active' : ''
+                localactiveItem === item.label ? 
+                'storybook-menu-bar__active' : ''
               }`}
             >
               {item.label}
@@ -193,6 +235,8 @@ CSS active class */
 ## It’s Story Time!
 
 Now for Storybook’s unique contribution. There’s a lot of information here, and Storybook has good documentation on how all of this works. For now, I’ll comment in the code, like above.
+
+Declaring the object:
 
 ```typescript
 /** menuBar.stories.ts */
@@ -224,7 +268,11 @@ const meta = {
 },
 
 } satisfies Meta<typeof MenuBar>;
+```
 
+And defining each story or state we want to examine:
+
+```typescript
 export default meta;
 type Story = StoryObj<typeof meta>;
 
@@ -264,8 +312,6 @@ I’ll admit, I was a little overwhelmed at first with this different kind of th
 
 In the end, Storybook takes these three files (menuBar.css, MenuBar.tsx, menuBar.stories.ts) and paints a complete picture of a single component independent of any other element, allowing you to look at how it looks and behaves on its own.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1733378753774/f68f1b32-9f6a-494e-885e-201873ef5872.png align="center")
-
 To review:
 
 * menuBar.css - Provides the styling and isolated CSS animations
@@ -275,7 +321,9 @@ To review:
 * menuBar.stories.ts - Provides the instructions for examination in Storybook
     
 
-[**Check out the live Storybook**](https://storybook.stephenjlu.com/?path=/story/menu-bar--default)
+### CodeSandbox
+
+<iframe src="https://codesandbox.io/embed/t46kwd?view=preview&amp;module=%2Fsrc%2FMenuBar.tsx&amp;hidenavigation=1&amp;expanddevtools=1" style="width:100%;height:75vh;border:0;border-radius:4px;overflow:hidden" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
 
 ### What's Next?
 
@@ -287,4 +335,8 @@ Whew! I hope this helps a bit, and you got a good look at how I created a basic 
 
 ## Changelog
 
-Improvements and updates will appear here.
+12/5/2024
+
+* Added a note about React
+    
+* Added CodeSandbox
